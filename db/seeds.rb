@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-%w(users trainer admin).each do |role|
+%w(user trainer admin).each do |role|
   Role.create name: role
 end
 

@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # use for users authentication
 gem 'devise'
 
+# use for User Authorization
+gem 'cancancan', '~> 2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

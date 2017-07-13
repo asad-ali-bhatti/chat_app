@@ -5,4 +5,8 @@ class User < ApplicationRecord
   belongs_to :role
 
   validates :username, uniqueness: true
+
+  Role.all.each do |role|
+    define_method(role.name+'?') { self.role_id == role.id }
+  end
 end
