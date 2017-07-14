@@ -39,6 +39,12 @@ gem 'devise'
 # use for User Authorization
 gem 'cancancan', '~> 2.0'
 
+# Use for installing bootstrap to asset pipeline
+gem 'twitter-bootstrap-rails'
+
+# Use for advanced form helpers
+gem 'simple_form'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

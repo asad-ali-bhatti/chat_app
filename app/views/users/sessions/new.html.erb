@@ -1,26 +1,15 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <!--<% if devise_mapping.rememberable? -%>-->
-    <!--<div class="field">-->
-      <!--<%= f.check_box :remember_me %>-->
-      <!--<%= f.label :remember_me %>-->
-    <!--</div>-->
-  <!--<% end -%>-->
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+<div class="well">
+  <legend>Log in</legend>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.input :username %>
+    <%= f.input :password %>
+    <div class="row">
+      <div class="col col-md-12">
+        <%= f.submit "Log in", class:'col-lg-offset-2 col-md-8  btn btn-primary' %>
+      </div>
+      <div class="col col-md-12 tm-10">
+        <%= link_to "Sign up", new_registration_path(resource_name), class: 'btn btn-default text-center col-lg-offset-2 col col-md-8' %>
+      </div>
+    </div>
+  <% end %>
+</div>
