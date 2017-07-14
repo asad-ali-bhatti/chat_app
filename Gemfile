@@ -39,6 +39,16 @@ gem 'devise'
 # use for User Authorization
 gem 'cancancan', '~> 2.0'
 
+# Use for installing bootstrap to asset pipeline
+gem 'twitter-bootstrap-rails'
+
+# Use for advanced form helpers
+gem 'simple_form'
+
+# Use for jquery installation in rails 5
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -47,6 +57,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'faker'
   gem 'pry'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
