@@ -45,6 +45,10 @@ gem 'twitter-bootstrap-rails'
 # Use for advanced form helpers
 gem 'simple_form'
 
+# Use for jquery installation in rails 5
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

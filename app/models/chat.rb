@@ -3,6 +3,7 @@ class Chat < ApplicationRecord
   belongs_to :receiver, class_name: 'User', foreign_key: :receiver_id
 
   validate :sender_receiver_uniqueness
+  validates :message, presence: true
 
   private
 

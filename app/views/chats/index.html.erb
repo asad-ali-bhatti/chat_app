@@ -1,0 +1,16 @@
+<div class="row chat">
+  <% @chats.each do |chat| %>
+    <% if chat.sender == current_user %>
+      <blockquote>
+        <p><%= chat.message %></p>
+        <small>Sent to <cite title=""><b><%= chat.receiver.username %></b></cite></small>
+      </blockquote>
+    <% elsif chat.receiver == current_user %>
+      <blockquote class="blockquote-reverse">
+        <p><%= chat.message %></p>
+        <small>Received from <cite title=""><b><%= chat.sender.username %></b></cite></small>
+      </blockquote>
+    <% end %>
+  <%end%>
+</div>
+<%= link_to 'New Chat', new_user_chat_path(current_user), class: 'btn btn-primary' %>

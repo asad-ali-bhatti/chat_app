@@ -3,9 +3,19 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
   belongs_to :role
-  has_many :chats
+  has_many :sent_chats, class_name: 'Chat',foreign_key: :sender_id
+  has_many :received_chats, class_name: 'Chat', foreign_key: :receiver_id
+
 
   validates :username, uniqueness: true
+
+  scope :non_admin_users, -> {where('role_id != ?', Role.admin.id)}
+  scope :trainers, -> {where(role: Role.trainer)}
+  scope :users, -> {where(role: Role.user)}
+
+  def chats
+    Chat.where('sender_id = ? or receiver_id = ?', self.id, self.id).order(:created_at)
+  end
 
   def self.define_role_helpers
     Role.all.each do |role|
