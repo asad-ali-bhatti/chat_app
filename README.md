@@ -21,26 +21,26 @@ This is very simple application. So, There is no special setup is required. We c
 
 1. Clone Application:
 
-``git clone git@github.com:asad-ali-bhatti/chat_app.git``
+   ``git clone git@github.com:asad-ali-bhatti/chat_app.git``
 
 2. Go into application folder and install bundler
 
-``cd chat_app``
+   ``cd chat_app``
 
-``gem install bundler``
+   ``gem install bundler``
 
 3. Now install gems (as gemset already created using rvm)
 
-``bundle install``
+   ``bundle install``
 
 4. Create database and setup it. 
 
-``rake db:create``
+   ``rake db:create``
 
-``rake db:setup``
+   ``rake db:setup``
 
 
 5. Yheeeyy! finally we are ready to launch.
 
-``rails s``
+   ``rails s``
 
