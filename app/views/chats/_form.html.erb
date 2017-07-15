@@ -1,0 +1,8 @@
+<%= simple_form_for([current_user, @chat]) do |f| %>
+    <%= f.input :message, text: true %>
+    <%= f.input :sender_id, as: :hidden %>
+    <%= f.input :receiver_id, as: :hidden %>
+
+    <%= f.submit 'Send', class: 'btn btn-success'%>
+    <span class="recipient_box">&nbsp; to <span class="label label-primary recipient_username"></span></span>
+<% end %>

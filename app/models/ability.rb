@@ -4,8 +4,9 @@ class Ability
   def initialize(user)
     if user.admin?
       can :manage, :all
-    elsif user.user?
-    elsif user.trainer?
+    elsif
+      can :read, Chat
+      can :create, Chat
     end
 
     # Define abilities for the passed in user here. For example:

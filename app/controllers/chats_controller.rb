@@ -1,21 +1,24 @@
 class ChatsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @chats = current_user.chats
   end
 
   def new
     @chat = current_user.sent_chats.build
-    @trainers = User.trainers
-    @users = User.users
+    @trainers = User.trainers.where('id != ?', current_user.id)
+    @users = User.users.where('id != ?', current_user.id)
+  end
+
+  def show
   end
 
   def create
-    @chat = current_user.sent_chats.build(chat_params)
-
     if @chat.save
       redirect_to user_chats_path(current_user), success: 'Message sent successfully.'
     else
-      redirect_to new_user_chat_path(current_user), flash: { error: @chat.errors.full_messages }, status: :unprocessable_entity
+      redirect_to new_user_chat_path(current_user), flash: { error: @chat.errors.full_messages }
     end
   end
 
@@ -26,6 +29,9 @@ class ChatsController < ApplicationController
   end
 
   def destroy
+    if @chat.delete
+      redirect_to user_chats_path(current_user), success: 'Message deleted.'
+    end
   end
 
   private

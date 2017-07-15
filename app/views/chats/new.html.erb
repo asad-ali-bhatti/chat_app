@@ -2,17 +2,7 @@
   <h2>New Chat</h2>
 </div>
 <div class="col col-md-8">
-  <%- if @chat.errors.any? %>
-    <h1>asdfasdfasd</h1>
-  <% end %>
-  <%= simple_form_for([current_user, @chat]) do |f| %>
-    <%= f.input :message, text: true %>
-    <%= f.input :sender_id, as: :hidden %>
-    <%= f.input :receiver_id, as: :hidden %>
-
-    <%= f.submit 'Send', class: 'btn btn-success'%>
-      <span class="recipient_box">&nbsp; to <span class="label label-primary recipient_username"></span></span>
-  <% end %>
+  <%= render 'form' %>
 </div>
 <div class="col col-md-4">
   <ul class="list-group" id="trainers">

@@ -36,6 +36,8 @@
         <a class="navbar-brand" href="/">Chat App</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
+            <li><%= link_to 'Chat', user_chats_path(current_user) %></li>
+            <li><%= link_to 'New Chat', new_user_chat_path(current_user) %></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>

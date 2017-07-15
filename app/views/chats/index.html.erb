@@ -4,11 +4,13 @@
       <blockquote>
         <p><%= chat.message %></p>
         <small>Sent to <cite title=""><b><%= chat.receiver.username %></b></cite></small>
+        <%= render(partial: 'links', locals: {chat: chat}) if current_user.admin? %>
       </blockquote>
     <% elsif chat.receiver == current_user %>
       <blockquote class="blockquote-reverse">
         <p><%= chat.message %></p>
         <small>Received from <cite title=""><b><%= chat.sender.username %></b></cite></small>
+        <%= render(partial: 'links', locals: {chat: chat}) if current_user.admin? %>
       </blockquote>
     <% end %>
   <%end%>
