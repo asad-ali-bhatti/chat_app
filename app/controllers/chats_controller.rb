@@ -16,7 +16,7 @@ class ChatsController < ApplicationController
 
   def create
     if @chat.save
-      redirect_to user_chats_path(current_user), success: 'Message sent successfully.'
+      redirect_to user_chats_path(current_user), flash: { success: 'Message sent successfully.' }
     else
       redirect_to new_user_chat_path(current_user), flash: { error: @chat.errors.full_messages }
     end
@@ -26,11 +26,16 @@ class ChatsController < ApplicationController
   end
 
   def update
+    if @chat.update_attributes(chat_params)
+      redirect_to user_chats_path(current_user), flash: {success: 'Message updated successfully.'}
+    else
+      redirect_to edit_user_chat_path(current_user, @chat), flash: { error: @chat.errors.full_messages }
+    end
   end
 
   def destroy
     if @chat.delete
-      redirect_to user_chats_path(current_user), success: 'Message deleted.'
+      redirect_to user_chats_path(current_user), flash: {success: 'Message deleted successfully.'}
     end
   end
 
